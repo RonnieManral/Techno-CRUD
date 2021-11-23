@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="text-center bg-success">User Added Currently</h3>
+<table id="bootstrapdatatable" class="text-white bg-success mb-3 table-resposive">
+  <thead>
+    <tr>
+      <th scope="col"><input type="checkbox" id="checkall" /></th>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Created</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for employee in latest_by %}
+    <tr class="text-white bg-dark">
+      <td><input type="checkbox" class="checkthis" /></td>
+      <td>{{employee.id}}</td>
+      <td>{{employee.username}}</td>
+      <td>{{employee.firstname}}</td>
+      <td>{{employee.lastname}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.created}}</td>
+      </tr>
+{% endfor %}
+      </tbody>
+      </table>
+<div class="container">
+<a href="/" class="btn btn-secondary">Back</a>
+</div>
+
+{% endblock content %}

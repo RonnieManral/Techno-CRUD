@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">Update Employee details</h1>
+<div class="container">
+{% for employee in employee %}
+<form method="POST" class="post-form" action='/update/{{employee.id}}'>
+{% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" name="id" id="id_id" value={{employee.id}}>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" id="id_username" value={{employee.username}}>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Firstname</label>
+    <input type="text" class="form-control" name="firstname" id="id_firstname" value={{employee.firstname}}>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Lastname</label>
+    <input type="text" class="form-control" name="lastname" id="id_lastname" value={{employee.lastname}}>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Email</label>
+    <input type="text" class="form-control" name="email" id="id_email" value={{employee.email}}>
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+  <a href="/" class="btn btn-light mx-2">Back</a>
+</form>
+{% endfor %}
+</div>
+{% endblock content %}
+
